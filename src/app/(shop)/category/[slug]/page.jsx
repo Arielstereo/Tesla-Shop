@@ -1,20 +1,24 @@
 "use client";
 
 import { notFound, usePathname } from "next/navigation";
-import { data } from "../../../../mockup/mockup";
+// import { data } from "../../../../mockup/mockup";
 import Title from "../../../../components/title/Title";
 import ProductCard from "../../../../components/card/ProductCard";
 import { useMenuStore } from "../../../../store/menuStore";
 import { useEffect } from "react";
+import { useProductStore } from "../../../../store/productStore";
 
 export default function CategoryPage() {
   const pathname = usePathname();
   const category = pathname.slice(10);
-  const { products } = data;
+  // const { products } = data;
 
-  const categoryData = products.filter((item) => item.gender === category);
+  const products = useProductStore((state) => state.products);
+  const {data} = products;
 
-  if (categoryData.length === 0) {
+  const categoryData = data?.filter((item) => item.gender === category);
+
+  if (categoryData?.length === 0) {
     notFound();
   }
 
@@ -31,7 +35,7 @@ export default function CategoryPage() {
   useEffect(() => {
     const res = searchProducts();
     setFilterResult(res);
-  }, [inputValue, products]);
+  }, [inputValue, data]);
 
   return (
     <div className="px-5">

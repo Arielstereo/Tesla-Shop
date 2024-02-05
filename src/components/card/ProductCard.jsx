@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div>
-      <Card shadow="sm" isPressable className="w-full h-full bg-[#111111]">
+      <Card shadow="sm" isPressable className="w-full h-full dark:bg-slate-800">
         <CardBody className="overflow-hidden">
           <Link href={`/product/${product.slug}`}>
             <Image
@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
             />
           </Link>
         </CardBody>
-        <CardFooter className="flex flex-col md:flex-row text-[12px] md:text-sm text-slate-100 md:justify-between">
+        <CardFooter className="flex flex-col md:flex-row text-[12px] md:text-sm text-slate-800 dark:text-slate-100 md:justify-between">
           <Link
             href={`/product/${product.slug}`}
             className="hover:text-sky-400"

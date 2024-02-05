@@ -11,7 +11,7 @@ const SearchInput = ({setValue}) => {
         type="text"
         labelPlacement="outside"
         startContent={
-          <IoSearchOutline className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+          <IoSearchOutline className="text-2xl text-slate-800 dark:text-slate-200 pointer-events-none flex-shrink-0" />
         }
       />
     </div>

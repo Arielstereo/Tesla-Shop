@@ -1,7 +1,7 @@
 "use client";
 
 import { notFound, usePathname } from "next/navigation";
-import { data } from "../../../../mockup/mockup";
+// import { data } from "../../../../mockup/mockup";
 import { titleFont } from "../../../../config/fonts";
 import Quantity from "../../../../components/quantity/Quantity";
 import { useState } from "react";
@@ -9,12 +9,14 @@ import clsx from "clsx";
 import Slider from "../../../../components/slider/Slider";
 import { useCartStore } from "../../../../store/cartStore";
 import TeslaButton from "../../../../components/button/TeslaButton";
+import { useProductStore } from "../../../../store/productStore";
 
 export default function ProductPage() {
   const pathname = usePathname();
   const path = pathname.slice(9);
-  const { products } = data;
-  const product = products.find((item) => item.slug === path);
+  const products = useProductStore((state) => state.products);
+  const { data } = products;
+  const product = data.find((item) => item.slug === path);
 
   const addProductToCart = useCartStore((state) => state.setCart);
 
@@ -27,17 +29,17 @@ export default function ProductPage() {
 
   return (
     <div className="grid md:grid-cols-3 py-8 gap-8 md:gap-0 px-2">
-      <div className="md:col-span-2 w-[300px] md:w-full">
+      <div className="md:col-span-2 w-[300px] md:w-full border border-slate-400">
         <Slider images={product.images} title={product.title} />
       </div>
-      <div className="py-4 md:px-12 px-6">
-        <h1 className={`${titleFont.className} md:text-2xl pb-8`}>
+      <div className="py-4 md:px-12 px-6 text-slate-800 dark:text-slate-200">
+        <h1 className={`${titleFont.className} md:text-2xl pb-8 `}>
           {product.title}
         </h1>
         <span className="font-semibold">$ {product.price}</span>
         <div className="my-8 flex flex-col gap-4">
           <span>SIZE</span>
-          <div className="flex gap-6 text-slate-100">
+          <div className="flex gap-6">
             {product.sizes.map((item, i) => (
               <button
                 onClick={() => setSizeSelected(item)}
@@ -63,9 +65,9 @@ export default function ProductPage() {
           href={"/cart"}
           onClick={() => addProductToCart(product, quantity, sizeSelected)}
         />
-        <div className="my-8 flex flex-col gap-4">
-          <span className="text-slate-200">DESCRIPTION</span>
-          <span className="font-semibold text-md text-slate-400">
+        <div className="my-8 flex flex-col gap-4 text-slate-800 dark:text-slate-200">
+          <span>DESCRIPTION</span>
+          <span className="font-semibold text-md">
             {product.description}
           </span>
         </div>

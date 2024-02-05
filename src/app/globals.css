@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
     --background: #111111
-}
+} */
 
 /* @media (prefers-color-scheme: light) {
   :root {
@@ -14,7 +14,7 @@
   }
 } */
 
-body {
+/* body {
   background: var(--background)
-}
+} */
 

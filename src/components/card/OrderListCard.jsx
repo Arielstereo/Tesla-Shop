@@ -6,14 +6,14 @@ const OrderListCard = ({ cart, removeItem, isCheckout }) => {
       {cart.map((item) => (
         <div
           key={item.product.slug}
-          className="mt-12 flex flex-col md:flex-row gap-4"
+          className="mt-12 flex flex-col md:flex-row gap-4 text-slate-800 dark:text-slate-200"
         >
           <Image
             src={`/products/${item.product.images[0]}`}
             alt="image"
             width={100}
             height={100}
-            className="object-cover"
+            className="object-cover border border-slate-400"
           />
           <div className="flex flex-col gap-2 w-full">
             <div className="flex justify-between gap-8">
@@ -21,16 +21,16 @@ const OrderListCard = ({ cart, removeItem, isCheckout }) => {
               <span>${item.product.price}</span>
             </div>
             <div>
-              <span className="text-slate-400">SIZE: {item.size}</span>
+              <span>SIZE: {item.size}</span>
             </div>
             <div className="flex gap-12">
-              <span className="text-slate-400">QUANTITY: {item.quantity}</span>
+              <span>QUANTITY: {item.quantity}</span>
               {isCheckout ? (
                 ""
               ) : (
                 <button
                   onClick={() => removeItem(item.product.slug)}
-                  className="text-slate-500 text-sm underline"
+                  className="text-sm underline"
                 >
                   REMOVE
                 </button>
