@@ -23,7 +23,7 @@ export default function Order({ params }) {
 
   useEffect(() => {
     const fetchOrdersById = async () => {
-      const res = await axios.get("/api/orders/" + id);
+      const res = await axios.get("https://tesla-shop-arielstereo.vercel.app/api/orders/" + id);
       setOrder(res.data.data);
     };
     fetchOrdersById();
@@ -37,7 +37,7 @@ export default function Order({ params }) {
 
   const handlePaid = async () => {
     setLoading(true);
-    await axios.post(`/api/orders/${id}/payment-order`);
+    await axios.post(`https://tesla-shop-arielstereo.vercel.app/api/orders/${id}/payment-order`);
     setTimeout(() => {
       setOrder((prevOrder) => ({ ...prevOrder, isPaid: true }));
     }, 3000);

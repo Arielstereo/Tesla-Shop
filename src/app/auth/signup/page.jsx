@@ -27,7 +27,7 @@ export default function Signup() {
     onSubmit: async (values) => {
       try {
         const res = await axios.post(
-          "/api/auth/signup",
+          "https://tesla-shop-arielstereo.vercel.app/api/auth/signup",
           values
         );
         console.log(res);

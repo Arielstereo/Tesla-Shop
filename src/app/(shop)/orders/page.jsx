@@ -28,7 +28,7 @@ export default function Orders() {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const res = await axios.get("/api/orders");
+      const res = await axios.get("https://tesla-shop-arielstereo.vercel.app/api/orders");
       console.log(res.data.data);
       setOrders(res.data.data);
     };

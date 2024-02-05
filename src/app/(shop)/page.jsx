@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("/api/products");
+        const res = await axios.get("https://tesla-shop-arielstereo.vercel.app/api/products");
         setProducts(res.data.data);
       } catch (error) {
         console.log(error);
