@@ -39,7 +39,7 @@ export default function Orders() {
   
       <>
       {
-        data.user.isAdmin ? (
+        data?.user?.isAdmin ? (
           <div className="md:mx-48 h-screen">
           <Title title="Orders" />
           <Table>

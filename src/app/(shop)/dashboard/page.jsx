@@ -15,7 +15,7 @@ export default function Dashboard() {
       <Title title="DASHBOARD" />
       <div className="flex flex-col gap-16 items-center justify-center">
         <p className="text-center text-slate-800 dark:text-slate-200">
-          {data.user.username} | {data.user.email}
+          {data?.user?.username} | {data?.user?.email}
         </p>
         <div className="flex flex-col md:flex-row md:w-1/2 gap:2 md:gap-8">
             <Button
