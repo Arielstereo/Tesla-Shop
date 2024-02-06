@@ -22,7 +22,7 @@ export default function CheckoutPage() {
   const id = Math.floor(Math.random() * 90000) + 10000;
 
   const handleOrder = async () => {
-    const newOrder = await axios.post("https://tesla-shop-arielstereo.vercel.app/api/orders", {
+    const newOrder = await axios.post("/api/orders", {
       id,
       info,
       cart,
